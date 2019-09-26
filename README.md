@@ -1,5 +1,7 @@
 # Greenpeace Planet 4 Architecture
 
+This project is based on use cases provided at https://rh.p4.greenpeace.org/.
+
 ![Architecture](media/arch-diagram.png)
 
 ## Architecture Components
