@@ -2,11 +2,11 @@
 apiVersion: eunomia.kohls.io/v1alpha1
 kind: GitOpsConfig
 metadata:
-  name: ui-gitops-config
+  name: common-gitops-config
   namespace: p4-dev
 spec:
   templateSource:
-    uri: https://github.com/greenpeace-hack/gp-frontend.git
+    uri: https://github.com/greenpeace-hack/common.git
     ref: master
   triggers:
   - type: Change

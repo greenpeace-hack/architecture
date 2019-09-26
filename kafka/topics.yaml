@@ -1,0 +1,52 @@
+apiVersion: kafka.strimzi.io/v1beta1
+kind: Kafka
+metadata:
+  creationTimestamp: 2019-09-26T12:50:02Z
+  generation: 1
+  name: p4-dev-cluster
+  namespace: p4-dev
+  resourceVersion: "1043330"
+  selfLink: /apis/kafka.strimzi.io/v1beta1/namespaces/p4-dev/kafkas/p4-dev-cluster
+  uid: 27f0795c-e05c-11e9-85d9-020e1bbc1162
+spec:
+  entityOperator:
+    topicOperator: {}
+    userOperator: {}
+  kafka:
+    config:
+      log.message.format.version: "2.2"
+      offsets.topic.replication.factor: 3
+      transaction.state.log.min.isr: 2
+      transaction.state.log.replication.factor: 3
+    listeners:
+      plain: {}
+      tls: {}
+    replicas: 3
+    storage:
+      type: jbod
+      volumes:
+      - deleteClaim: false
+        id: 0
+        size: 10Gi
+        type: persistent-claim
+    version: 2.2.1
+  zookeeper:
+    replicas: 3
+    storage:
+      deleteClaim: false
+      size: 10Gi
+      type: persistent-claim
+status:
+  conditions:
+  - lastTransitionTime: 2019-09-26T12:51:12+0000
+    status: "True"
+    type: Ready
+  listeners:
+  - addresses:
+    - host: p4-dev-cluster-kafka-bootstrap.p4-dev.svc
+      port: 9092
+    type: plain
+  - addresses:
+    - host: p4-dev-cluster-kafka-bootstrap.p4-dev.svc
+      port: 9093
+    type: tls
